@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     movieNames: [
-    {name: 'The Batman'},
-    {name: 'Intersteller'}
+    {id: 1, name: 'The Batman'},
+    {id: 2, name: 'Intersteller'}
     ]   
 }; 
 
@@ -13,9 +13,11 @@ const movieTitles = createSlice({
     initialState, 
     reducers: {
         addMovie: (state, action) => {
-            state.movieNames.push({name: action.payload})
+            const newId = state.movieNames[state.movieNames.length -1].id +1; 
+            state.movieNames.push({id: newId, name: action.payload})
         },
         removeMovie: (state, action) => {
+            state.movieNames = state.movieNames.filter((movie) => movie.id !== action.payload)
         }
 
     }

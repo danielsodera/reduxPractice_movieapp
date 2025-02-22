@@ -14,8 +14,8 @@ const handleSearchClick = () => {
 
 }
 
-const handleDeleteClick = () => {
-
+const handleDeleteClick = (id) => {
+    dispatch(removeMovie(id))
 }
 
 // console.log(movies);
@@ -26,7 +26,7 @@ const handleDeleteClick = () => {
         <button onClick={handleSearchClick}>Add</button>
         <h1>Movie List</h1>
         <ul>
-        {movies.map((movie, index) => <div key={index}>{movie.name}<button onClick={handleDeleteClick}>Delete</button></div>)}
+        {movies.map((movie, index) => <div key={movie.id}>{movie.name}<button onClick={() => handleDeleteClick(movie.id)}>Delete</button></div>)}
         </ul>
         
         </>
