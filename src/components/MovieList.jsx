@@ -10,7 +10,10 @@ export const MovieList = ({movies}) => {
 const [search, setSearch] = useState("");
 
 const handleSearchClick = () => {
-    dispatch(addMovie(search))
+    if (search){
+        dispatch(addMovie(search))
+    }
+   
 
 }
 
