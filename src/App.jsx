@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 
 function App() {
 
-  const movies = useSelector((store) => store.movies)
+  const movies = useSelector((state) => state.movies.movieNames)
+
 
   return (
     <>
